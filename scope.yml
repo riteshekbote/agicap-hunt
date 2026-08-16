@@ -1,0 +1,52 @@
+programs:
+  agicap:
+    name: Agicap Bug Bounty
+    disclosure_policy: https://agicap.com/en/bug-bounty/
+    contact: bugbounty@agicap.com
+    domains:
+      - agicap.com
+      - "*.agicap.com"
+    github_orgs: []   # no GitHub org in scope — agicap.com + subdomains only
+    rewards: "discretionary, bank transfer only (invoice required: name, address, IBAN, SWIFT/BIC, VAT if any)"
+
+rules:
+  # Agicap policy: read-only, PoC mandatory, no disruption
+  passive_only: false    # active testing allowed but non-destructive; no data modification
+  max_requests_per_second: 1
+  no_account_creation: false   # accounts allowed IF needed for auth flows, but no mass signups, no data modification
+  no_data_modification: true   # "Data modification" is explicitly NOT allowed (what will not result in a reward)
+  no_denial_of_service: true   # DoS/spam explicitly excluded
+  no_pre_disclosure: true      # must be expressly authorized by Agicap before public disclosure
+  redact_secrets_in_commits: true  # commit sha256 of secrets, never raw values
+
+# AGICAP EXPLICIT REJECT LIST (from their policy - do NOT spend cycles, do NOT report)
+rejected_classes:
+  - "Very low-quality / automated-output-only reports"
+  - "No-PoC / standard vuln without proof applicable to Agicap"
+  - "TLS configuration weakness"
+  - "Missing security headers"          # incl. general CORS config
+  - "CORS configuration"                # explicitly rejected as 'best practice non-compliance'
+  - "DNS configurations"
+  - "Network-level DoS"
+  - "Self XSS"
+  - "Login/logout/unauthenticated/low-value CSRF"
+  - "Man-in-the-Middle"
+  - "Non-exploitable vulnerability"
+  - "Rate limit related"                # rate-limit findings explicitly rejected
+  - "Social engineering / physical attacks"
+
+# What PAYS on Agicap (fintech, cash-flow management for SMEs): must be exploitable with a real PoC
+# - IDOR / object-level authz on accounts, cash-flow, invoices, forecasting, banking connections
+# - AuthN/AuthZ bypass (broken access control), privilege escalation
+# - Business logic (payment/forecast manipulation, multi-currency, negative amounts, race on transactions)
+# - SSRF / XXE / RCE / SQLi / deserialization with proven impact
+# - Stored/XSS with real user-impact PoC (not self-XSS)
+# - Secrets exposure in app infra
+
+# Multi-model ensemble
+models:
+  - { id: opencode/big-pickle, name: bigpickle }
+  - { id: opencode/nemotron-3-ultra-free, name: nemotron3 }
+  - { id: opencode/longcat-2.0-free, name: longcat }
+  - { id: opencode/ling-3.0-flash-free, name: ling3 }
+  - { id: opencode/laguna-s-2.1-free, name: laguna }
