@@ -26,5 +26,9 @@
  {
   "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
   "status": "done"
+ },
+ {
+  "url": "https://js.hs-scripts.com/2856475.js",
+  "status": "done"
  }
 ]
