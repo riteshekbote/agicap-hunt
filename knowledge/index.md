@@ -28,3 +28,12 @@
 
 ## FINDING INBOX (validated = move to reports/)
 - (empty)
+
+
+---
+## TRIAGE CLOSE-OUT 2026-08-22: GCS LIST finding KILLED — do not submit
+Policy check (agicap.com/en/bug-bounty) excludes 'non exploitable vulnerability' +
+'best-practices non-compliance'. Decisive evidence: assets_list_generator.sh = trivial
+ls-to-JSON script; all objects are public frontend assets already served to every visitor.
+Attacker gains: filename list only. N/A probability high; submission effort unjustified.
+Buckets re-verified live 2026-08-22 (core-flipper-assets-prod, common-maintenance-prod 200).
