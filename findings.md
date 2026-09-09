@@ -586,3 +586,9 @@
 ## jsrecon 2026-09-09 00:19:59 UTC
 
 ## jsrecon 2026-09-09 04:51:29 UTC
+
+## jsrecon 2026-09-09 09:14:34 UTC
+- https://agicap.com/app-1c0d55f34bfaf5369c52.js (161142B, 0 eps, 1 maps, 0 key-hits)
+    MAP app-1c0d55f34bfaf5369c52.js.map
+- https://agicap.com/webpack-runtime-bfae1330109c10a0a26d.js (7241B, 0 eps, 1 maps, 0 key-hits)
+    MAP webpack-runtime-bfae1330109c10a0a26d.js.map
