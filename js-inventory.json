@@ -78,5 +78,17 @@
  {
   "url": "https://agicap.com/webpack-runtime-82bd5fe092d4518f3a7d.js",
   "status": "done"
+ },
+ {
+  "url": "https://agicap.com/app-d66afe0e9f6d99c9c1ad.js",
+  "status": "done"
+ },
+ {
+  "url": "https://agicap.com/framework-6d0d1aff843b075dafe7.js",
+  "status": "done"
+ },
+ {
+  "url": "https://agicap.com/webpack-runtime-da6711fde3ad4bb0b8e1.js",
+  "status": "done"
  }
 ]
